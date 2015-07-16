@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html ng-app="Timeline">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" media="screen and (max-width:35em)" href="css/main.css" />
+  <link rel="stylesheet" media="screen and (min-width:35em) and (max-width:50em)" href="css/main.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <!-- bower:css -->
+  <!-- endbower -->
+
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+  <div class="bodyContainer">
+    <div class="timelineHeader">
+      <header>
+          <p>Blueprint</p>
+          <h1>Vertical Timeline</h1>
+        <nav>
+          <!-- links back to portfolio and to github code -->
+          <a href="https://garrettgraham.github.io/Portfolio/" target="_blank" class="backToPortfolio" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Back to Portfolio"><i class="fa fa-arrow-left"></i></a>
+          <a href="https://github.com/GarrettGraham/TIY-Assignments/blob/feature/building-out-timeline/Assignments-Helluva-Ride/Timeline/index.html" target="_blank" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="Code on GitHub"><i class="fa fa-github"></i></a>
+        </nav>
+      </header>
+    </div>
+
+    <div class="mainContent" ng-controller="CommitsCtrl">
+      <ul class="timeline">
+        <li ng-repeat="PushEvent in commitArray">
+          <!-- time and date, stacked and different sizes and different colors-->
+          <div>
+            <time class="initialDatetime" datetime="2015-01-26 19:47:28">
+              <span>01-26-15</span>
+              <span>19:47</span>
+            </time>
+          </div>
+          <!-- mobile icon with border radius and two different sized circles. NEED to enlarge!! -->
+          <div class="mobileIcon">
+            <i class="fa fa-mobile fa-2x"></i>
+          </div>
+          <!-- carrot pointing up with same color as background color on <p> tag-->
+          <div class="timelineArticle">
+            <article>
+              <span class="carrot">
+                <i class="fa fa-play fa-rotate-270"></i>
+              </span>
+              <h3>{{PushEvent.name}} Commits</h3>
+              <p>{{PushEvent.text}}</p>
+            </article>
+          </div>
+        </li>
+      </ul>
+      <!-- </div> -->
+    </div>
+  </div>
+
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- endbower -->
+
+  <script>
+    window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function(b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l;
+      b[l] || (b[l] =
+        function() {
+          (b[l].q = b[l].q || []).push(arguments)
+        });
+      b[l].l = +new Date;
+      e = o.createElement(i);
+      r = o.getElementsByTagName(i)[0];
+      e.src = '//www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+</body>
+
+</html>
